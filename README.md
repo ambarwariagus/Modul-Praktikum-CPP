@@ -23,8 +23,9 @@ Repositori ini dibuat untuk membantu:
 
 ## 🔗 Referensi
 
-👉 https://www.geeksforgeeks.org/cpp/cpp-cheatsheet/
-👉 https://www3.ntu.edu.sg/home/ehchua/programming/cpp/cp3_OOP.html
+- https://www.geeksforgeeks.org/cpp/cpp-cheatsheet/
+- https://logicmojo.com/oops-concepts-in-cpp
+- https://www3.ntu.edu.sg/home/ehchua/programming/cpp/cp3_OOP.html
 
 ---
 
