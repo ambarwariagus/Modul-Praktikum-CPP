@@ -105,4 +105,3 @@ Screenshot harus menampilkan hasil eksekusi program.
 - Gunakan penamaan file yang jelas dan konsisten.
 - Pastikan program dapat dikompilasi dan dijalankan dengan baik.
 - Setiap latihan harus memiliki source code dan screenshot hasil eksekusi.
-- Repository harus selalu diperbarui sesuai dengan praktikum yang dikerjakan.
