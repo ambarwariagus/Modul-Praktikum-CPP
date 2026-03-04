@@ -26,7 +26,9 @@ Setelah repository dibuat, mahasiswa **wajib menambahkan dosen sebagai collabora
 
 Tambahkan akun GitHub berikut sebagai collaborator:
 
-```ambarwariagus```
+```
+ambarwariagus
+```
 
 
 ---
