@@ -20,7 +20,18 @@ Repository harus bersifat PUBLIC agar dapat diperiksa oleh dosen atau asisten pr
 
 ---
 
-## 2. Identitas Mahasiswa
+## 2. Menambahkan Kolaborator
+
+Setelah repository dibuat, mahasiswa **wajib menambahkan dosen sebagai collaborator** agar dapat melakukan pemeriksaan langsung pada repository.
+
+Tambahkan akun GitHub berikut sebagai collaborator:
+
+```ambarwariagus```
+
+
+---
+
+## 3. Identitas Mahasiswa
 
 Di dalam repository, buat file README.md yang berisi identitas mahasiswa sebagai berikut:
 
@@ -35,9 +46,9 @@ Contoh:
 
 ```
 Nama        : Agus Ambarwari
-NIM         : 2310112345
-Program Studi : Ilmu Komputer
-Fakultas    : Fakultas Ilmu Komputer
+NIM         : 33222026
+Program Studi : Teknik Elektro dan Informatika
+Fakultas    : Sekolah Teknik Elektro dan Informatika
 ```
 
 ---
