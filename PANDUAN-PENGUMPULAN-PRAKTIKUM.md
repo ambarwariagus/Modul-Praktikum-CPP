@@ -42,19 +42,19 @@ ambarwariagus
 Di dalam repository, buat file README.md yang berisi identitas mahasiswa sebagai berikut:
 
 ```
-Nama        :
-NIM         :
+Nama          :
+NIM           :
 Program Studi :
-Fakultas    :
+Fakultas      :
 ```
 
 Contoh:
 
 ```
-Nama        : Agus Ambarwari
-NIM         : 33222026
+Nama          : Agus Ambarwari
+NIM           : 33222026
 Program Studi : Teknik Elektro dan Informatika
-Fakultas    : Sekolah Teknik Elektro dan Informatika
+Fakultas      : Sekolah Teknik Elektro dan Informatika
 ```
 
 ---
