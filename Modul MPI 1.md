@@ -264,7 +264,7 @@ int main(int argc, char** argv) {
     if (rank == 0) {
         dokumen = 100;
 
-        // Utas diblokir hingga dokumen berpindah tangan ke Proses 1
+        // Proses diblokir hingga dokumen berpindah tangan ke Proses 1
         // Parameter: (data, jumlah data, tipe, tujuan, label pesan, jaringan)
         MPI_Send(&dokumen, 1, MPI_INT, 1, 0, MPI_COMM_WORLD);
 
@@ -273,7 +273,7 @@ int main(int argc, char** argv) {
     else if (rank == 1) {
         MPI_Status status;
 
-        // Utas masuk wait state menunggu dokumen dari Proses 0
+        // Proses masuk wait state menunggu dokumen dari Proses 0
         // Parameter: (tempat_simpan, jumlah, tipe, sumber, label, jaringan, status)
         MPI_Recv(&dokumen, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, &status);
 
