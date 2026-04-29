@@ -335,7 +335,7 @@ int MPI_Irecv(
 
 ### Definisi Fungsi untuk Menunggu Penyelesaian
 
-Karena fungsi di atas langsung kembali, Anda harus menggunakan fungsi berikut untuk memastikan data sudah benar-benar terkirim atau diterima sebelum *buffer* digunakan kembali.
+Karena fungsi di atas langsung kembali, maka fungsi berikut harus digunakan untuk memastikan data sudah benar-benar terkirim atau diterima sebelum *buffer* digunakan kembali.
 
 ```c
 int MPI_Wait(
@@ -565,15 +565,9 @@ int main(int argc, char** argv) {
 
 ## Teori Singkat
 
-Secara default, semua prosesor yang menyala berada di dalam satu grup raksasa bernama `MPI_COMM_WORLD`.
+Secara default, semua prosesor yang menyala berada di dalam satu grup raksasa bernama `MPI_COMM_WORLD`. Namun, masalah kompleks seringkali membutuhkan pembagian tim.
 
-Namun, masalah kompleks seringkali membutuhkan pembagian tim.
-
-**Splitting** memecah satu ruang topologi besar menjadi sub-sub grup independen.
-
-Pengelompokan dipilah menggunakan parameter `color`.
-
-Prosesor yang memiliki "warna" sama akan masuk ke grup yang sama. Urutan absensi (*Rank*) di grup baru diatur ulang dari nol.
+**Splitting** memecah satu ruang topologi besar menjadi sub-sub grup independen. Pengelompokan dipilah menggunakan parameter `color`. Prosesor yang memiliki "warna" sama akan masuk ke grup yang sama. Urutan absensi (*Rank*) di grup baru diatur ulang dari nol.
 
 ---
 
