@@ -307,6 +307,59 @@ Anda baru menghentikan pekerjaan dan ke depan pintu saat kurir benar-benar tiba 
 
 ---
 
+## Struktur Fungsi Pengiriman dan Penerimaan (Non-Blocking)
+
+Dalam mode **non-blocking**, fungsi hanya menginisiasi operasi dan langsung kembali (*return*) ke program utama tanpa menunggu proses selesai.
+
+Hal ini memungkinkan terjadinya *overlap* antara komunikasi dan komputasi.
+
+---
+
+### Definisi Fungsi untuk Mengirim Pesan (Non-Blocking)
+
+```c
+int MPI_Isend(
+    const void *buf,       // (Payload) Pointer ke memori data yang akan dikirim
+    int count,             // (Payload) Jumlah elemen data yang dikirim
+    MPI_Datatype datatype, // (Payload) Tipe data MPI dari elemen tersebut
+    int dest,              // (Metadata) ID/Rank proses tujuan
+    int tag,               // (Metadata) Label/ID unik untuk pesan ini
+    MPI_Comm comm,         // (Metadata) Ruang lingkup komunikasi
+    MPI_Request *request   // (Handle) Output: Objek pelacak status operasi (tiket)
+);
+```
+
+---
+
+### Definisi Fungsi untuk Menerima Pesan (Non-Blocking)
+
+```c
+int MPI_Irecv(
+    void *buf,             // (Payload) Pointer ke memori penampung data
+    int count,             // (Payload) Kapasitas maksimal elemen yang bisa ditampung
+    MPI_Datatype datatype, // (Payload) Tipe data MPI yang diharapkan
+    int source,            // (Metadata) ID/Rank proses pengirim
+    int tag,               // (Metadata) Label pesan yang ditunggu
+    MPI_Comm comm,         // (Metadata) Ruang lingkup komunikasi
+    MPI_Request *request   // (Handle) Output: Objek pelacak status operasi (tiket)
+);
+```
+
+---
+
+### Definisi Fungsi untuk Menunggu Penyelesaian
+
+Karena fungsi di atas langsung kembali, Anda harus menggunakan fungsi berikut untuk memastikan data sudah benar-benar terkirim atau diterima sebelum *buffer* digunakan kembali.
+
+```c
+int MPI_Wait(
+    MPI_Request *request,  // (Handle) Objek request yang diperoleh dari Isend/Irecv
+    MPI_Status *status     // (Output) Detail penerimaan (serupa dengan MPI_Recv)
+);
+```
+
+---
+
 ## Penerapan Nyata
 
 Sangat umum pada pemrosesan video streaming *real-time* atau *Computer Vision*.
