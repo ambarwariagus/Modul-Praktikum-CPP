@@ -26,6 +26,7 @@ Repositori ini dibuat untuk membantu:
 - https://www.geeksforgeeks.org/cpp/cpp-cheatsheet/
 - https://logicmojo.com/oops-concepts-in-cpp
 - https://www3.ntu.edu.sg/home/ehchua/programming/cpp/cp3_OOP.html
+- https://csis.pace.edu/~marchese/SE765/L0/Introduction%20to%20Parallel%20Computing.htm
 
 ---
 
