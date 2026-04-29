@@ -222,13 +222,9 @@ Sifatnya **Blocking** (*menahan*). Artinya, program akan berhenti sementara di b
 
 ## Analogi (Serah Terima Dokumen Fisik)
 
-### Pengirim (`MPI_Send`)
+**Pengirim (`MPI_Send`)**: Anda mengantarkan dokumen langsung ke meja rekan Anda. Anda akan mematung berdiri dan tidak akan kembali bekerja sampai rekan Anda mengambil dokumen itu dari tangan Anda.
 
-Anda mengantarkan dokumen langsung ke meja rekan Anda. Anda akan mematung berdiri dan tidak akan kembali bekerja sampai rekan Anda mengambil dokumen itu dari tangan Anda.
-
-### Penerima (`MPI_Recv`)
-
-Rekan Anda diam di mejanya, tidak mengerjakan apa-apa, murni hanya menunggu Anda datang membawa dokumen.
+**Penerima (`MPI_Recv`)**: Rekan Anda diam di mejanya, tidak mengerjakan apa-apa, murni hanya menunggu Anda datang membawa dokumen.
 
 ---
 
@@ -305,7 +301,7 @@ Hal ini memungkinkan terjadinya *overlap* antara komunikasi dan komputasi.
 
 ---
 
-### Definisi Fungsi untuk Mengirim Pesan (Non-Blocking)
+### Definisi Fungsi untuk Mengirim Pesan
 
 ```c
 int MPI_Isend(
@@ -321,7 +317,7 @@ int MPI_Isend(
 
 ---
 
-### Definisi Fungsi untuk Menerima Pesan (Non-Blocking)
+### Definisi Fungsi untuk Menerima Pesan
 
 ```c
 int MPI_Irecv(
@@ -417,33 +413,17 @@ Operasi ini adalah tulang punggung dari algoritma **Divide and Conquer (Pecah da
 
 ## Jenis Operasi Komunikasi Kolektif
 
-### Broadcast (`MPI_Bcast`)
-
-Menyalin (*meng-copy-paste*) satu data dari *Root* ke semua anggota.
-
-### Scatter (`MPI_Scatter`)
-
-Mendistribusikan atau memotong-motong array besar menjadi potongan kecil dan membagikannya secara merata.
-
-### Gather (`MPI_Gather`)
-
-Kebalikan dari *Scatter*. Mengumpulkan hasil potongan kecil dari semua orang menjadi satu array utuh kembali di *Root*.
+1. **Broadcast (`MPI_Bcast`)**: Menyalin (*meng-copy-paste*) satu data dari *Root* ke semua anggota.
+2. **Scatter (`MPI_Scatter`)**: Mendistribusikan atau memotong-motong array besar menjadi potongan kecil dan membagikannya secara merata.
+3. **Gather (`MPI_Gather`)**: Kebalikan dari *Scatter*. Mengumpulkan hasil potongan kecil dari semua orang menjadi satu array utuh kembali di *Root*.
 
 ---
 
 ## Analogi (Ruang Kelas)
 
-### Bcast
-
-Guru memakai megafon mengumumkan besok libur (satu info disalin ke pikiran semua murid).
-
-### Scatter
-
-Guru membagikan setumpuk 40 kertas ujian secara membagi rata ke 4 ketua barisan (masing-masing 10 kertas).
-
-### Gather
-
-Ujian selesai, 4 ketua barisan mengumpulkan kertas dan menumpuknya kembali menjadi 40 kertas di meja guru.
+1. **Bcast**: Guru memakai megafon mengumumkan besok libur (satu info disalin ke pikiran semua murid).
+2. **Scatter**: Guru membagikan setumpuk 40 kertas ujian secara membagi rata ke 4 ketua barisan (masing-masing 10 kertas).
+3. **Gather**: Ujian selesai, 4 ketua barisan mengumpulkan kertas dan menumpuknya kembali menjadi 40 kertas di meja guru.
 
 ---
 
