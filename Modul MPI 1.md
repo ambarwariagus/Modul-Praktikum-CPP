@@ -91,19 +91,9 @@ Oleh karena itu, langkah pertama selalu menginisialisasi lingkungan MPI untuk me
 
 ## Penjelasan Konsep
 
-### `MPI_Init`
-
-Menginisialisasi lingkungan eksekusi MPI. Tidak ada instruksi atau komunikasi paralel yang boleh dilakukan sebelum fungsi ini dipanggil oleh sistem.
-
-### `MPI_Comm_size`
-
-Mendapatkan total jumlah proses (*instances* dari program) yang dialokasikan oleh sistem untuk berjalan bersamaan.
-
-### `MPI_Comm_rank`
-
-Mendapatkan identifier (ID) unik untuk setiap proses, biasanya berupa angka dari `0` hingga `size - 1`.
-
-ID ini krusial sebagai penanda alur logika agar program tahu bagian data mana yang harus dikerjakan oleh proses tersebut (misal: proses dengan Rank 0 bertindak sebagai pengatur utama).
+- `MPI_Init`: Menginisialisasi lingkungan eksekusi MPI. Tidak ada instruksi atau komunikasi paralel yang boleh dilakukan sebelum fungsi ini dipanggil oleh sistem.
+- `MPI_Comm_size`: Mendapatkan total jumlah proses (*instances* dari program) yang dialokasikan oleh sistem untuk berjalan bersamaan.
+- `MPI_Comm_rank`: Mendapatkan identifier (ID) unik untuk setiap proses, biasanya berupa angka dari `0` hingga `size - 1`. ID ini krusial sebagai penanda alur logika agar program tahu bagian data mana yang harus dikerjakan oleh proses tersebut (misal: proses dengan Rank 0 bertindak sebagai pengatur utama).
 
 ---
 
