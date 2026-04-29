@@ -135,7 +135,7 @@ int main(int argc, char** argv) {
 
 ---
 
-# Anatomi Pesan MPI dan Tipe Data
+# 2. Anatomi Pesan MPI dan Tipe Data
 
 ## Teori Singkat
 
@@ -164,13 +164,13 @@ Metadata mencakup parameter seperti:
 
 ---
 
-# Struktur Fungsi Pengiriman dan Penerimaan
+## Struktur Fungsi Pengiriman dan Penerimaan
 
 Konsep payload dan metadata ini tertuang secara eksplisit dalam definisi (*signature*) fungsi komunikasi MPI dasar berikut:
 
 ---
 
-## Definisi Fungsi untuk Mengirim Pesan
+### Definisi Fungsi untuk Mengirim Pesan
 
 ```c
 int MPI_Send(
@@ -183,7 +183,7 @@ int MPI_Send(
 );
 ```
 
-## Definisi Fungsi untuk Menerima Pesan
+### Definisi Fungsi untuk Menerima Pesan
 
 ```c
 int MPI_Recv(
@@ -199,13 +199,13 @@ int MPI_Recv(
 
 ---
 
-# Tipe Data Dasar MPI
+## Tipe Data Dasar MPI
 
 Agar sistem dengan arsitektur berbeda dapat saling memahami ukuran memori saat bertukar *payload*, MPI memetakan tipe data standar C ke tipe data miliknya sendiri.
 
 ---
 
-## Tabel Tipe Data Dasar MPI
+### Tabel Tipe Data Dasar MPI
 
 | Tipe Data C     | Tipe Data MPI       | Deskripsi |
 |---|---|---|
@@ -220,7 +220,7 @@ Agar sistem dengan arsitektur berbeda dapat saling memahami ukuran memori saat b
 
 ---
 
-# 2. Komunikasi Point-to-Point (Blocking)
+# 3. Komunikasi Point-to-Point (Blocking)
 
 ## Teori Singkat
 
@@ -287,7 +287,7 @@ int main(int argc, char** argv) {
 
 ---
 
-# 3. Komunikasi Point-to-Point (Non-Blocking)
+# 4. Komunikasi Point-to-Point (Non-Blocking)
 
 ## Teori Singkat
 
@@ -415,7 +415,7 @@ int main(int argc, char** argv) {
 
 ---
 
-# 4. Komunikasi Kolektif (Broadcast, Scatter, & Gather)
+# 5. Komunikasi Kolektif (Broadcast, Scatter, & Gather)
 
 ## Teori Singkat
 
@@ -509,7 +509,7 @@ int main(int argc, char** argv) {
 
 ---
 
-# 5. Derived Datatypes (Tipe Data Bentukan)
+# 6. Derived Datatypes (Tipe Data Bentukan)
 
 ## Teori Singkat
 
@@ -591,7 +591,7 @@ int main(int argc, char** argv) {
 
 ---
 
-# 6. Operasi Komunikator (Splitting Communicators)
+# 7. Operasi Komunikator (Splitting Communicators)
 
 ## Teori Singkat
 
@@ -666,7 +666,7 @@ int main(int argc, char** argv) {
 
 ---
 
-# 7. Studi Kasus: Penjumlahan Array Paralel
+# 8. Studi Kasus: Penjumlahan Array Paralel
 
 ## Konsep
 
@@ -776,7 +776,7 @@ int main(int argc, char** argv) {
 
 ---
 
-# 8. Tugas: Implementasi Paralel Algoritme Sorting
+# 9. Tugas: Implementasi Paralel Algoritme Sorting
 
 ## Deskripsi Tugas
 
