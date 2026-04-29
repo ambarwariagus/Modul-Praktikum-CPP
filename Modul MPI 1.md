@@ -405,17 +405,59 @@ int main(int argc, char** argv) {
 
 ## Teori Singkat
 
-Instruksi komunikasi yang melibatkan seluruh prosesor sekaligus dalam satu grup.
-
-Operasi ini adalah tulang punggung dari algoritma **Divide and Conquer (Pecah dan Taklukkan)**.
+Dalam komunikasi kolektif, satu proses bertindak sebagai Root (sumber atau penampung utama), sementara proses lainnya berpartisipasi sebagai pengirim atau penerima secara serentak.
 
 ---
 
 ## Jenis Operasi Komunikasi Kolektif
 
-1. **Broadcast (`MPI_Bcast`)**: Menyalin (*meng-copy-paste*) satu data dari *Root* ke semua anggota.
-2. **Scatter (`MPI_Scatter`)**: Mendistribusikan atau memotong-motong array besar menjadi potongan kecil dan membagikannya secara merata.
-3. **Gather (`MPI_Gather`)**: Kebalikan dari *Scatter*. Mengumpulkan hasil potongan kecil dari semua orang menjadi satu array utuh kembali di *Root*.
+### 1. Broadcast (`MPI_Bcast`)
+
+Mengirimkan data yang sama dari satu proses root ke semua proses lainnya dalam komunikator.
+
+```c
+int MPI_Bcast(
+    void *buffer,          // (Payload) Pointer ke data (dikirim oleh root, diterima oleh rank lain)
+    int count,             // (Payload) Jumlah elemen data
+    MPI_Datatype datatype, // (Payload) Tipe data MPI
+    int root,              // (Metadata) Rank proses sumber data
+    MPI_Comm comm          // (Metadata) Ruang lingkup komunikasi
+);
+```
+
+### 2. Scatter (`MPI_Scatter`)
+
+Membagi data dari proses root menjadi potongan-potongan kecil dan mengirimkan tiap potongan ke proses yang berbeda sesuai urutan rank.
+
+```c
+int MPI_Scatter(
+    const void *sendbuf,   // (Root) Pointer ke seluruh data yang akan dibagi
+    int sendcount,         // (Root) Jumlah elemen yang dikirim ke SETIAP proses
+    MPI_Datatype sendtype, // (Root) Tipe data elemen yang dikirim
+    void *recvbuf,         // (User) Pointer ke penampung data di masing-masing proses
+    int recvcount,         // (User) Jumlah elemen yang diterima (biasanya sama dengan sendcount)
+    MPI_Datatype recvtype, // (User) Tipe data elemen yang diterima
+    int root,              // (Metadata) Rank proses pembagi data
+    MPI_Comm comm          // (Metadata) Ruang lingkup komunikasi
+);
+```
+
+### 3. Gather (`MPI_Gather`)
+
+Kebalikan dari Scatter. Mengumpulkan potongan-potongan data dari semua proses dan menyatukannya kembali secara berurutan di proses root.
+
+```c
+int MPI_Gather(
+    const void *sendbuf,   // (User) Pointer ke potongan data di masing-masing proses
+    int sendcount,         // (User) Jumlah elemen yang dikirim oleh setiap proses
+    MPI_Datatype sendtype, // (User) Tipe data elemen yang dikirim
+    void *recvbuf,         // (Root) Pointer ke memori penampung utama (hanya di sisi root)
+    int recvcount,         // (Root) Jumlah elemen yang diterima DARI SETIAP proses
+    MPI_Datatype recvtype, // (Root) Tipe data elemen yang diterima
+    int root,              // (Metadata) Rank proses pengumpul data
+    MPI_Comm comm          // (Metadata) Ruang lingkup komunikasi
+);
+```
 
 ---
 
